@@ -1,5 +1,5 @@
-const remarkGfm = require("remark-gfm");
-const createMdx = require("@next/mdx");
+import createMdx from "@next/mdx";
+import remarkGfm from "remark-gfm";
 
 const widthMDX = createMdx({
   extension: /\.mdx?$/,
