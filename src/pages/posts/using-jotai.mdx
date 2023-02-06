@@ -1,0 +1,189 @@
+# Using Jotai For State Management
+
+[Back To Blog](/blog)
+
+This will be a simple guide to using Jotai for state management. We will be creating an example to that keeps a color palatte state where we can access the current selected color. We also will be creating a menu and a color picker using Chakra UI.
+
+## First Steps
+
+We will be using Vite to create our project (I use yarn personally). In this demonstation we will be using React with regular JavaScript -- so if your following along make sure to select those options when prompted.
+
+```bash
+yarn create vite
+# or
+npm create vite@latest
+```
+
+Follow the steps then `cd` into the project folder and install the dependencies. After that we will be installing Chakra UI and Jotai.
+
+```bash
+yarn add jotai @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 react-icons
+```
+
+## Provider Setup For Chakra and Jotai
+
+Go to the `src` directory and inside `main.jsx` or `main.tsx`, wrap ChakraProvider around App:
+
+```jsx
+// main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { App } from "./App";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Provider as JotaiProvider } from "jotai";
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <JotaiProvider>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </JotaiProvider>
+  </React.StrictMode>
+);
+```
+
+## App Setup and Notes
+
+After you have done this go ahead and delete the `App.css` file and `main.css` files as for this demonstation we will not be writing any of our own CSS.
+Your `App.jsx` or `App.tsx` file should look like this:
+
+```jsx
+// App.jsx
+import React from "react";
+import { Box, Heading } from "@chakra-ui/react";
+export const App = () => {
+  return (
+    <Box>
+      <Heading>Hello World</Heading>
+    </Box>
+  );
+};
+```
+
+This is just to ensure Chakra is working as we intend. The next step is to create our state, color palatte and and toggler using Jotai and Chakra.
+
+## Structure of our Folders
+
+Create a folder and name it `components` and then create another folder called `store`. Inside `store` create a file called `colors.js` and inside it create the logic for our state.
+
+## Colors State
+
+```js
+import { atom } from "jotai";
+export const COLORS = [
+  { color: "Chilly Blue", hex: "#2196f3" },
+  { color: "Retro Magneta", hex: "#f73378" },
+  { color: "Vibrant Red", hex: "#ff1744" },
+  { color: "Calm Orange", hex: "#ff5722" },
+  { color: "Mellow Green", hex: "#6fbf73" },
+  { color: "Slime Green", hex: "#5ed62b" },
+  { color: "Smooth Purple", hex: "#8561c5" },
+  { color: "Amber Yellow", hex: "#ffc400" },
+];
+const initialColor = { color: "Smooth Purple", hex: "#8561c5" };
+export const useColors = atom(initialColor);
+```
+
+## Color Toggle and Menu
+
+Creating state that is accessible to all components using Jotai is that simple. You will see how we can leverage this context inside other components.
+Next create a file called `Toggle.jsx` and inside it create the logic for our toggler.
+
+```jsx
+import React from "react";
+import { useAtom } from "jotai";
+import {
+  Box,
+  Button,
+  HStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
+import { BiColorFill } from "react-icons/bi";
+import { COLORS, useColors } from "../store/colors";
+const ColorBox = (props) => (
+  <Box
+    cursor={"pointer"}
+    h="16px"
+    w="16px"
+    borderRadius={"full"}
+    bg={props.accent}
+  />
+);
+export const ToggleColors = () => {
+  const [colors, setColors] = useAtom(useColors);
+  return (
+    <Menu isLazy>
+      <MenuButton color="white" bg={colors.hex} as={Button}>
+        <BiColorFill />
+      </MenuButton>
+      <MenuList>
+        {COLORS.map((color) => {
+          return (
+            <MenuItem
+              onClick={() => setColors(color)}
+              textTransform="capitalize"
+              key={color.hex}
+            >
+              <HStack width="full" justifyContent="space-between">
+                <Box
+                  _hover={{
+                    color: "white",
+                  }}
+                  color={color.hex === colors.hex ? colors.hex : "inherit"}
+                >
+                  {color.color}
+                </Box>
+                <ColorBox accent={color.hex} />
+              </HStack>
+            </MenuItem>
+          );
+        })}
+      </MenuList>
+    </Menu>
+  );
+};
+```
+
+Inside this file we are using the atom we using the state that was generated in the `color.js` file.
+Using Chakra UI we can quickly create a button that will show our color palette inside a popover menu. We can then select which color we want to use.
+
+## Using the State and Toggle
+
+Inside our `App.jsx` file we will be using the state and toggler.
+
+```jsx
+import React from "react";
+import { Box, Heading, HStack } from "@chakra-ui/react";
+import { ToggleColors } from "./components/Toggle";
+import { useAtom } from "jotai";
+import { useColors } from "./store/colors";
+export const App = () => {
+  const [color] = useAtom(useColors);
+  return (
+    <Box
+      sx={{
+        display: "grid",
+        placeContent: "center",
+        placeItems: "center",
+        height: "80vh",
+      }}
+    >
+      <HStack spacing={4} align="center">
+        <ToggleColors />
+        <Heading>{color.color}</Heading>
+      </HStack>
+    </Box>
+  );
+};
+```
+
+You should now have a simple color toggle that will change the color palette. You can access this color simply by using the `useAtom` hook across any page or component.
+
+## Demo
+
+For a demo of this simple application click [here](https://quelchx-demo-jotai-chakra.netlify.app).
+
+[Back To Posts](/)

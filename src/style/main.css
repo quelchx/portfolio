@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+body {
+  @apply subpixel-antialiased;
+  font-size: 16px;
+  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+}
+
+code {
+  padding: 0.2em 0.4em;
+
+  background-color: rgb(107 114 128 / 10%);
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #26272b;
+  border-radius: 10px;
+}
+
+code {
+  font-size: large;
+}
+
+pre code {
+  display: inline-block;
+  min-width: 100%;
+  padding: 0;
+  font-size: small;
+  background-color: "transparent";
+  border-radius: 0;
+  color: black;
+}
+
+a code {
+  text-decoration: none;
+}
+
+figure {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+figure figcaption {
+  font-size: 14px;
+  color: rgb(75 85 99);
+}
+
+@media (min-width: 768px) {
+  figure {
+    margin-right: -14rem;
+    max-width: calc(100vw - 20rem);
+  }
+}
