@@ -1,0 +1,158 @@
+import { Meta } from "@/components/Meta";
+
+<Meta
+  title="Postgres Docker Container"
+  description="Quickly get a Postgres Docker container up and running"
+/>
+
+[Go Back](/)
+
+## Stop Paying For Development Databases
+
+When I first started working with databases usually I would do one of the following things:
+
+- Create one on my machine
+- Create one on a cloud provider
+- Use a free tier database
+
+To me these are not ideals options for testing, experimenting
+or just trying out a new database.
+I want to be able to quickly spin up a database and destroy it when I'm done.
+I also want to be able to do this without having to pay for it and registering my
+credit information with a cloud provider (I'm looking at you AWS and Railway).
+
+This is where Docker comes in.
+
+## Docker
+
+Docker is a containerization tool that allows you to create a container that can be
+run on any machine that has Docker installed.
+
+Docker containers are lightweight and can be easily created and destroyed.
+
+To get started with Docker you can follow the [official installation guide](https://docs.docker.com/get-docker/).
+
+## Postgres
+
+Postgres is a relational database management system (RDBMS) that is open source and
+free to use.
+
+Postgres is a great database to use for learning about databases and is also a great
+database to use for production applications.
+
+## Getting Started
+
+To get started we need to have Docker installed on our machine. In this example I will be using Prisma as an ORM to connect to the database.
+
+Personally I like to hide my environment variables in a `.env` file. So in this guide I will be referencing
+this file. You can also just put your environment variables in your `docker-compose.yml` file.
+
+```bash
+# .env
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+POSTGRES_PORT=5432
+```
+
+Once we have Docker installed we can create a `docker-compose.yml` file that will be used to create
+our Postgres container.
+
+```yml
+version: "3.8"
+services:
+  db:
+    container_name: pg_container
+    image: postgres
+    expose:
+      - "${POSTGRES_PORT}"
+    restart: always
+    environment:
+      # get env variables from .env file
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+```
+
+Now that we have our `docker-compose.yml` file we can run the following command to create our container.
+
+```bash
+docker-compose up -d
+```
+
+This will create a container named `pg_container` and expose it on port `5432`.
+
+## Connecting To The Database
+
+Now that we have our container up and running we can connect to it using a database client.
+
+In this example I will be using Prisma as an ORM to connect to the database.
+
+```bash
+# install prisma
+npm install prisma -g
+
+# create a new prisma project
+prisma init
+
+# select postgres as the database
+```
+
+Now that we have our Prisma project we can connect to our database.
+
+```bash
+# create a new .env file
+touch .env
+
+# add the following to the .env file
+DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
+```
+
+## Create A Simple Model And Run Migrations
+
+**prisma/prisma.schema**
+
+```prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+}
+```
+
+Now let's run the following command to create our database schema.
+
+```bash
+prisma migrate dev --name init
+```
+
+Now we can run the following command to connect to our database.
+
+```bash
+prisma studio
+```
+
+This will open up a GUI in your web browser and allow you to view your database.
+
+## Conclusion
+
+In this guide we learned how to quickly get a Postgres Docker container up and running.
+
+We also learned how to connect to our database using Prisma.
+
+With this you can expand on this guide to start building a simple CRUD application or whatever you want.
+
+[Back To Posts](/)
+
+Last Update: 2023-02-12

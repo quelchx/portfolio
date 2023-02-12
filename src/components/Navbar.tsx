@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, IconButton, Typography } from "@mui/material";
+import { Avatar, IconButton, Tooltip, Typography } from "@mui/material";
 
 import { config } from "@/config";
 import { HStack, VStack } from "./Stacks";
@@ -44,24 +44,28 @@ export const Navbar = () => {
       </HStack>
       <HStack spacing={3} alignItems={"center"}>
         <HStack>
-          <a
-            href="https://github.com/quelchx"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconButton>
-              <RiGithubLine />
-            </IconButton>
-          </a>
-          <a
-            href="https://github.com/quelchx/portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconButton>
-              <BiGitBranch />
-            </IconButton>
-          </a>
+          <Tooltip title="View my GitHub profile">
+            <a
+              href="https://github.com/quelchx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton>
+                <RiGithubLine />
+              </IconButton>
+            </a>
+          </Tooltip>
+          <Tooltip title="View the source code for this site">
+            <a
+              href="https://github.com/quelchx/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton>
+                <BiGitBranch />
+              </IconButton>
+            </a>
+          </Tooltip>
 
           <TogglePalette />
           <ToggleMode />

@@ -2,10 +2,10 @@ import { Fragment, useState } from "react";
 import { create } from "zustand";
 import {
   Box,
-  Button,
   IconButton,
   Menu,
   MenuItem,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { BiColorFill } from "react-icons/bi";
@@ -50,7 +50,7 @@ const ColorBox = (props: { accent: string }) => (
 );
 
 export const TogglePalette = () => {
-  const { palette, setPalette } = usePalette();
+  const { setPalette } = usePalette();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -66,13 +66,16 @@ export const TogglePalette = () => {
   };
 
   return (
-    <Fragment>
-      <IconButton
-        onClick={handleClick}
-        aria-expanded={open ? "true" : undefined}
-      >
-        <BiColorFill />
-      </IconButton>
+    <>
+      <Tooltip title="Toggle Palette">
+        <IconButton
+          onClick={handleClick}
+          aria-expanded={open ? "true" : undefined}
+        >
+          <BiColorFill />
+        </IconButton>
+      </Tooltip>
+
       <Menu
         anchorEl={anchorEl}
         open={open}
@@ -88,6 +91,6 @@ export const TogglePalette = () => {
           </MenuItem>
         ))}
       </Menu>
-    </Fragment>
+    </>
   );
 };
