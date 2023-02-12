@@ -1,11 +1,12 @@
 import React from "react";
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, IconButton, Typography } from "@mui/material";
 
 import { config } from "@/config";
-import { HStack } from "./Stacks";
-import { PageLink } from "./Links";
+import { HStack, VStack } from "./Stacks";
 import { ToggleMode } from "./ToggleMode";
 import { TogglePalette } from "./ToggleColor";
+import { BiGitBranch } from "react-icons/bi";
+import { RiGithubLine } from "react-icons/ri";
 
 export const Navbar = () => {
   return (
@@ -13,29 +14,55 @@ export const Navbar = () => {
       alignItems="center"
       justifyContent="space-between"
       sx={{
-        padding: 3,
+        height: 84,
       }}
     >
       <HStack spacing={1} alignItems="center">
         <Avatar src={config.avatar} />
-        <Typography
-          variant="h6"
-          sx={{
-            letterSpacing: 0.1,
-            lineHeight: 1,
-            fontWeight: 600,
-          }}
-        >
-          Eric Quelch
-        </Typography>
+        <VStack>
+          <Typography
+            variant="h6"
+            sx={{
+              letterSpacing: 0.1,
+              lineHeight: 1,
+              fontWeight: 600,
+            }}
+          >
+            Eric Quelch
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            sx={{
+              letterSpacing: 0.1,
+              lineHeight: 1,
+              fontWeight: 400,
+            }}
+          >
+            Software Engineer
+          </Typography>
+        </VStack>
       </HStack>
       <HStack spacing={3} alignItems={"center"}>
-        {config.routes.map((route) => (
-          <PageLink key={route.path} href={route.path}>
-            <Typography>{route.name}</Typography>
-          </PageLink>
-        ))}
         <HStack>
+          <a
+            href="https://github.com/quelchx"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconButton>
+              <RiGithubLine />
+            </IconButton>
+          </a>
+          <a
+            href="https://github.com/quelchx/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconButton>
+              <BiGitBranch />
+            </IconButton>
+          </a>
+
           <TogglePalette />
           <ToggleMode />
         </HStack>

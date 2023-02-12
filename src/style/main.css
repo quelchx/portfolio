@@ -22,6 +22,11 @@ code {
   background-color: rgb(107 114 128 / 10%);
 }
 
+.contains-task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
 pre {
   padding: 1rem;
   overflow-x: auto;

@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { Link, Typography } from "@mui/material";
+import { Checkbox, Link, Typography } from "@mui/material";
 
 const heading = {
   marginBottom: 2.2,
@@ -167,6 +167,14 @@ export const components: {
   h6: (props: Props) => (
     <Typography component="h6" fontSize={20} sx={heading} {...props} />
   ),
-  a: (props: Props) => <Link component={NextLink} {...props} />,
+  a: (props: Props) => (
+    <Link
+      component={NextLink}
+      sx={{
+        textDecoration: "none",
+      }}
+      {...props}
+    />
+  ),
   code: (props: any) => <Code {...props} />,
 };
