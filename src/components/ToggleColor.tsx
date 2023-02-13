@@ -85,7 +85,7 @@ export const TogglePalette = () => {
         }}
       >
         {ACCENT_COLORS.map((accent) => (
-          <MenuItem onClick={() => handleToggle(accent)}>
+          <MenuItem key={accent.hex} onClick={() => handleToggle(accent)}>
             <ColorBox accent={accent.hex} />
             <Typography sx={{ ml: 1 }}>{accent.color}</Typography>
           </MenuItem>
