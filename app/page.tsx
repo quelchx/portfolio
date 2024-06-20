@@ -1,14 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import { articles } from "@/data/dummy-data";
 import { services } from "@/data/constants";
 import { Button } from "@/components/ui/button";
 
-import { PageLink } from "@/components/base/page-link";
+import { Route } from "@/components/base/route";
 import { Heading, SubHeading, Text } from "@/components/base/typography";
 
 import type { Article } from "@/types";
+import { getImageUrl } from "@/lib/utils";
+import { useBlogPosts } from "@/queries/useBlogPosts";
 
 const TreeCanvas = dynamic(
   () => import("@/components/base/tree-canvas").then((mod) => mod.TreeCanvas),
@@ -25,7 +28,11 @@ function ArticleSnippet(props: Article) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt=""
-            src={props.imageSrc}
+            src={getImageUrl({
+              collection: "articles",
+              id: props.id,
+              image: props.image,
+            })}
             className="size-10 rounded-xl dark:border dark:border-neutral-700"
           />
           <div className="text-sm leading-6">
@@ -33,19 +40,21 @@ function ArticleSnippet(props: Article) {
               {props.title}
             </p>
             <p className="text-neutral-500 text-sm dark:text-neutral-400">
-              {props.date}
+              {props.created}
             </p>
           </div>
         </div>
-        <p className="text-neutral-500 mt-4 dark:text-neutral-400 line-clamp-2">
-          {props.body}
-        </p>
+        <div
+          className="text-neutral-500 mt-4 dark:text-neutral-400 line-clamp-2 text-sm"
+          dangerouslySetInnerHTML={{ __html: props.body }}
+        />
       </a>
     </li>
   );
 }
 
 export default function Home() {
+  const query = useBlogPosts();
   return (
     <section className="flex flex-col space-y-12">
       {/* hero */}
@@ -115,7 +124,7 @@ export default function Home() {
             ))}
           </ul>
           <div className="flex flex-wrap border-t justify-end dark:border-neutral-700 pt-6 mt-6">
-            <PageLink href="/" label="Learn more about my services →" />
+            <Route href="/" label="Learn more about my services →" />
           </div>
         </div>
       </div>
@@ -130,12 +139,12 @@ export default function Home() {
         </SubHeading>
 
         <ul className="grid md:grid-cols-2 mt-4 gap-12 gap-y-24 gap-x-6 border-t border-dashed dark:border-neutral-700 pt-12 pb-6">
-          {articles.slice(0, 2).map((article) => (
+          {query.data?.slice(0, 2).map((article) => (
             <ArticleSnippet key={article.title} {...article} />
           ))}
         </ul>
         <div className="flex flex-wrap border-t justify-end dark:border-neutral-700 pt-6 mt-6">
-          <PageLink href="/blog" label="Read more articles →" />
+          <Route href="/blog" label="Read more articles →" />
         </div>
       </div>
     </section>

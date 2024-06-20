@@ -1,7 +1,10 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { useRepositories } from "@/hooks/useRepositories";
+import { useRepositories } from "@/queries/useRepositories";
+import { Spinner } from "@/components/base/spinner";
+import { Warning } from "@/components/base/warning";
+
 import type { Repo } from "@/types";
 
 function Caption(props: { icon: string; item: number; color?: string }) {
@@ -56,41 +59,21 @@ function RepoCard(props: Repo) {
 export function RepoCards() {
   const query = useRepositories();
 
-  if (query.isLoading)
-    return (
-      <div
-        className="flex justify-center items-center w-full h-96"
-        aria-label="loading"
-      >
-        <Icon
-          icon="tabler:loader-2"
-          className="animate-spin w-10 h-10 text-blue-500"
-        />
-      </div>
-    );
+  if (query.isLoading) return <Spinner />;
 
   if (query.isError)
     return (
-      <div
-        role="alert"
-        className="rounded border-s-4 border-red-500 bg-red-50 p-4 mt-5"
-      >
-        <strong className="block font-medium text-red-800">
-          Something went wrong
-        </strong>
-
-        <p className="mt-2 text-sm text-red-700">
-          Please try refreshing the page or check back later. If the problem
-          continues, please contact us. Your patience is appreciated.
-        </p>
-      </div>
+      <Warning
+        title="Failed to fetch repositories"
+        message={query.error.message}
+      />
     );
 
-  return (
+  return query.data ? (
     <ul className="grid md:grid-cols-2 my-12 gap-12 gap-y-24">
       {query.data?.map((repo) => (
         <RepoCard key={repo.name} {...repo} />
       ))}
     </ul>
-  );
+  ) : null;
 }

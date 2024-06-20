@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-export function PageLink(props: {
-  href: string;
-  label: string;
-  icon?: string;
-}) {
+export function Route(props: { href: string; label: string; icon?: string }) {
   return (
     <Link
       href={props.href}

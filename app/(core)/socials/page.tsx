@@ -1,9 +1,9 @@
+import Link from "next/link";
 import { socials } from "@/data/constants";
 
 import { Button } from "@/components/ui/button";
 import { Heading, SubHeading } from "@/components/base/typography";
 import { SocialCard } from "./component/social-card";
-import Link from "next/link";
 
 export default function Page() {
   return (
@@ -18,18 +18,10 @@ export default function Page() {
           me on any of the following.
         </SubHeading>
         <div className="mt-4 flex flex-row space-x-3">
-          <Button
-            size="sm"
-            variant="secondary"
-            className="hover:bg-blue-500 dark:hover:bg-blue-600 bg-neutral-600 dark:bg-neutral-500 text-white"
-          >
-            <a href="mailto:quelchx@gmail.com">Send Email</a>
+          <Button className="bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 hover:bg-blue-500 text-neutral-100 outline-none border-none">
+            <a href="mailto:quelchx@gmail.com">Email Me</a>
           </Button>
-          <Button
-            size="sm"
-            variant="secondary"
-            className=" bg-slate-800 dark:bg-slate-700 hover:bg-green-600 dark:hover:bg-green-500 text-white"
-          >
+          <Button className="bg-purple-900 dark:bg-purple-800 dark:hover:bg-purple-700 hover:bg-purple-500 text-neutral-100 outline-none border-none">
             <Link href="/contact">Use Form</Link>
           </Button>
         </div>

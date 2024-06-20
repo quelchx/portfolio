@@ -1,9 +1,10 @@
 export type Article = {
   id: string;
   title: string;
-  date: string;
+  created: string;
   body: string;
-  imageSrc: string;
+  image: string;
+  topic: string;
 };
 
 export type Repo = {

@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { routes } from "@/data/constants";
 
 import { Button } from "@/components/ui/button";
-import { PageLink } from "@/components/base/page-link";
 
 import {
   DropdownMenu,
@@ -16,6 +15,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import { Route } from "./route";
 
 function ModeToggle() {
   const { setTheme } = useTheme();
@@ -91,7 +92,7 @@ function AvatarCard() {
 
 function PageLinks() {
   return routes.map((route) => (
-    <PageLink
+    <Route
       label={route.label}
       key={route.href}
       href={route.href}
