@@ -9,6 +9,7 @@ import { Heading, SubHeading, Text } from "@/components/base/typography";
 import { OVERVIEW } from "@/constants";
 
 import { LatestPosts } from "./components/latest-posts";
+import { ServicesHero } from "./components/services-hero";
 
 const TreeCanvas = dynamic(
   () => import("@/components/base/tree-canvas").then((mod) => mod.TreeCanvas),
@@ -20,7 +21,6 @@ const TreeCanvas = dynamic(
 export default function Home() {
   return (
     <section className="flex flex-col space-y-12">
-      {/* hero */}
       <div className="flex flex-col lg:flex-row items-center w-full px-4 gap-2">
         <div className="flex flex-col space-y-4 container px-8 py-16">
           <div className="flex flex-col space-y-6 text-neutral-900 dark:text-neutral-300 dark:hover:text-blue-300 hover:text-blue-600 transition-all duration-300">
@@ -68,12 +68,7 @@ export default function Home() {
       </div>
       {/* services overview */}
       <div className="px-12 py-4 mx-auto">
-        <Heading>
-          My <span className="text-blue-600 dark:text-blue-500">Services</span>
-        </Heading>
-        <SubHeading>
-          I specialize in designing and developing top-tier digital products.
-        </SubHeading>
+        <ServicesHero />
         <div className="border-t border-dashed dark:border-neutral-700 pt-6 mt-4">
           <Text>
             Consider my services for your website, app, or other digital product

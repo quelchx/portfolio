@@ -1,13 +1,15 @@
+import Link from "next/link";
+
 export function AvatarCard() {
   return (
-    <a className="group block flex-shrink-0 cursor-pointer" href="/">
+    <Link className="group block flex-shrink-0 cursor-pointer" href="/">
       <div className="flex items-center">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://avatars.githubusercontent.com/u/74473426?v=4"
             alt="avatar"
-            className="inline-block h-9 w-9 ring-1 ring-black dark:ring-white/10 grayscale filter rounded-full"
+            className="inline-block h-[2.5rem] w-[2.5rem] ring-1 ring-black dark:ring-white/10 filter rounded-full"
           />
         </div>
         <div className="ml-3">
@@ -19,6 +21,6 @@ export function AvatarCard() {
           </p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

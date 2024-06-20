@@ -20,7 +20,8 @@ export function StackHero() {
       </Heading>
       <SubHeading>
         Here are some of the languages, libraries, and tools that I enjoy
-        working with.
+        working with. Although my core libraries are listed below, I am familiar
+        and comfortable with many others.
       </SubHeading>
     </div>
   );
