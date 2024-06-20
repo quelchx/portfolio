@@ -1,8 +1,0 @@
-POST http://localhost:3000/api/contact
-Content-Type: application/json
-
-{
-  "message": "Hello, World!",
-  "name": "John Doe",
-  "email": "ewaq.v2@gmail.com"
-}

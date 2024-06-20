@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { socials } from "@/data/constants";
 
 import { Button } from "@/components/ui/button";
 import { Heading, SubHeading } from "@/components/base/typography";
 import { SocialCard } from "./component/social-card";
+import { SOCIALS } from "@/constants";
 
 export default function Page() {
   return (
@@ -26,7 +26,7 @@ export default function Page() {
           </Button>
         </div>
         <div className="mt-12 flex flex-col space-y-8">
-          {socials.map((social) => (
+          {SOCIALS.map((social) => (
             <SocialCard key={social.section} {...social} />
           ))}
         </div>

@@ -1,7 +1,7 @@
-import { Heading, SubHeading } from "@/components/base/typography";
+import { EXPERIENCE } from "@/constants";
 
-import { experience } from "@/data/constants";
-import { ExperienceCard } from "./components/experience-card";
+import { Heading, SubHeading } from "@/components/base/typography";
+import { WorkCard } from "./components/work-card";
 
 export default function Page() {
   return (
@@ -17,8 +17,8 @@ export default function Page() {
         </SubHeading>
 
         <div className="mt-12">
-          {experience.map((exp) => (
-            <ExperienceCard key={exp.years} {...exp} />
+          {EXPERIENCE.map((exp) => (
+            <WorkCard key={exp.years} {...exp} />
           ))}
         </div>
       </div>

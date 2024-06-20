@@ -8,7 +8,7 @@ export function Heading(props: { children: React.ReactNode }) {
 
 export function SubHeading(props: { children: React.ReactNode }) {
   return (
-    <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+    <p className="mt-4 text-neutral-500 dark:text-neutral-400">
       {props.children}
     </p>
   );

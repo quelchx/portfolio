@@ -1,6 +1,6 @@
-import type { WorkExperience } from "@/types";
+import type { ExperienceProps } from "@/constants";
 
-export function ExperienceCard(props: WorkExperience) {
+export function WorkCard(props: ExperienceProps) {
   return (
     <div className="work-experience-section">
       <p className="text-lg font-semibold leading-6 text-neutral-900 dark:text-white ">

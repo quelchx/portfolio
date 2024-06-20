@@ -1,11 +1,13 @@
+import { type BaseModel } from "pocketbase";
+
+type CollectionBase = Pick<BaseModel, "id" | "created" | "updated">;
+
 export type Article = {
-  id: string;
   title: string;
-  created: string;
   body: string;
   image: string;
   topic: string;
-};
+} & CollectionBase;
 
 export type Repo = {
   name: string;
@@ -18,26 +20,16 @@ export type Repo = {
   url: string;
 };
 
-export type Job = {
-  company: string;
-  role: string;
-  duties: string[];
-};
+export type Service = {
+  skill: string;
+  label: string;
+  pricing: string;
+  description: string;
+  services: string[];
+  details: string;
+} & CollectionBase;
 
-export type WorkExperience = {
-  years: string;
-  jobs: Job[];
-};
-
-export type Platform = {
-  platform: string;
-  username: string;
-  icon: string;
-  url?: string;
-};
-
-export type Socials = {
-  section: string;
-  overview: string;
-  platforms: Platform[];
-};
+export type Post = {
+  name: string;
+  message: string;
+} & CollectionBase;

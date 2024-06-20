@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import dayjs from "dayjs";
-import type { Article } from "@/types";
 import { getImageUrl } from "@/lib/utils";
+import type { Article } from "@/types";
 
-export function ArticleCard(props: Article) {
+export function BlogCard(props: Article) {
   return (
     <li>
       <Link href={`/blog/${props.id}`} className="group">

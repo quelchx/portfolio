@@ -1,10 +1,4 @@
-"use client";
-
 import { Icon } from "@iconify/react";
-import { useRepositories } from "@/queries/useRepositories";
-import { Spinner } from "@/components/base/spinner";
-import { Warning } from "@/components/base/warning";
-
 import type { Repo } from "@/types";
 
 function Caption(props: { icon: string; item: number; color?: string }) {
@@ -16,7 +10,7 @@ function Caption(props: { icon: string; item: number; color?: string }) {
   );
 }
 
-function RepoCard(props: Repo) {
+export function ProjectCard(props: Repo) {
   return (
     <li className="flow-root">
       <a
@@ -26,8 +20,10 @@ function RepoCard(props: Repo) {
         rel="noopener noreferrer"
       >
         <div className="flex items-center gap-x-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <div className="size-10 rounded-xl bg-blue-500 hover:bg-green-500 transition-colors duration-300" />
+          <Icon
+            icon="skill-icons:npm-dark"
+            className="w-12 h-12 text-blue-400 dark:text-blue-300"
+          />
           <div className="text-sm leading-6">
             <p className="uppercase font-semibold text-black dark:text-white group-hover:text-blue-400 duration-200">
               {props.name}
@@ -54,26 +50,4 @@ function RepoCard(props: Repo) {
       </a>
     </li>
   );
-}
-
-export function RepoCards() {
-  const query = useRepositories();
-
-  if (query.isLoading) return <Spinner />;
-
-  if (query.isError)
-    return (
-      <Warning
-        title="Failed to fetch repositories"
-        message={query.error.message}
-      />
-    );
-
-  return query.data ? (
-    <ul className="grid md:grid-cols-2 my-12 gap-12 gap-y-24">
-      {query.data?.map((repo) => (
-        <RepoCard key={repo.name} {...repo} />
-      ))}
-    </ul>
-  ) : null;
 }

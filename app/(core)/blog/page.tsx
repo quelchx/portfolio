@@ -1,46 +1,13 @@
-"use client";
-
-import { useBlogPosts } from "@/queries/useBlogPosts";
-import { Spinner } from "@/components/base/spinner";
-import { Warning } from "@/components/base/warning";
-import { Heading, SubHeading } from "@/components/base/typography";
-
-import { ArticleCard } from "./components/article-card";
+import { BlogHero } from "./components/blog-hero";
+import { BlogList } from "./components/blog-list";
 
 export default function Page() {
-  const query = useBlogPosts();
-
-  if (query.isLoading) return <Spinner />;
-
-  if (query.isError)
-    return (
-      <Warning
-        title="Failed to fetch blog posts"
-        message={query.error.message}
-      />
-    );
-
-  return query.data ? (
+  return (
     <section className="flex flex-col space-y-12 pt-[66px]">
       <div className="px-12 pt-4 pb-12 mx-auto">
-        <Heading>
-          <span className="text-blue-600 dark:text-blue-500">My </span>
-          Blog
-        </Heading>
-        <SubHeading>
-          Welcome to my blog! Here, you&apos;ll find a collection of my
-          articles, including the most recent updates and posts. While I&apos;m
-          not a frequent blogger, I enjoy sharing the things I&apos;ve learned
-          from time to time. I hope you find my content interesting and helpful.
-          Enjoy exploring!
-        </SubHeading>
-
-        <ul className="grid md:grid-cols-2 mt-4 gap-12 gap-y-24 gap-x-6 border-t border-dashed dark:border-neutral-700 pt-12 pb-6">
-          {query.data?.map((article) => (
-            <ArticleCard key={article.title} {...article} />
-          ))}
-        </ul>
+        <BlogHero />
+        <BlogList />
       </div>
     </section>
-  ) : null;
+  );
 }

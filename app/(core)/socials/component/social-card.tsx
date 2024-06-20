@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
-import type { Socials } from "@/types";
+import type { SocialProps } from "@/constants";
 
-export function SocialCard(props: Socials) {
+export function SocialCard(props: SocialProps) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start py-12  border-t dark:border-neutral-700">
       <div className="flex flex-col space-y-1">

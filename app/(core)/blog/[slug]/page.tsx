@@ -1,7 +1,8 @@
 "use client";
+
 import dayjs from "dayjs";
+import { useBlogPost } from "@/store/useBlog";
 import { Heading, SubHeading } from "@/components/base/typography";
-import { useBlogPost } from "@/queries/useBlogPost";
 import { Spinner } from "@/components/base/spinner";
 import { Warning } from "@/components/base/warning";
 

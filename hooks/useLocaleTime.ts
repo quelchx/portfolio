@@ -13,5 +13,10 @@ export function useLocalTime() {
     };
   }, []);
 
-  return time;
+  return time.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  });
 }

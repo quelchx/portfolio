@@ -3,7 +3,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-import { services } from "@/data/constants";
 import { Button } from "@/components/ui/button";
 
 import { Route } from "@/components/base/route";
@@ -11,7 +10,8 @@ import { Heading, SubHeading, Text } from "@/components/base/typography";
 
 import type { Article } from "@/types";
 import { getImageUrl } from "@/lib/utils";
-import { useBlogPosts } from "@/queries/useBlogPosts";
+import { useBlogPosts } from "@/store/useBlog";
+import { OVERVIEW } from "@/constants";
 
 const TreeCanvas = dynamic(
   () => import("@/components/base/tree-canvas").then((mod) => mod.TreeCanvas),
@@ -119,7 +119,7 @@ export default function Home() {
             set and extensive experience.
           </Text>
           <ul className="mt-4 text-neutral-500 space-y-1 list-disc text-sm list-inside dark:text-neutral-400">
-            {services.map((service) => (
+            {OVERVIEW.map((service) => (
               <li key={service}>{service}</li>
             ))}
           </ul>

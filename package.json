@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
+    "@radix-ui/react-dialog": "^1.1.0",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-hover-card": "^1.1.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.0",
@@ -34,6 +36,7 @@
     "tailwindcss-animate": "^1.0.7",
     "three": "0.150.0",
     "tunnel-rat": "0.1.2",
+    "typewriter-effect": "^2.21.0",
     "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },

@@ -1,5 +1,5 @@
 import { SubHeading, Heading } from "@/components/base/typography";
-import { RepoCards } from "./components/repo-cards";
+import { ProjectList } from "./components/project-list";
 
 export default function Page() {
   return (
@@ -19,7 +19,7 @@ export default function Page() {
           <p className="text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-blue-400">
             Projects
           </p>
-          <RepoCards />
+          <ProjectList />
         </div>
       </div>
     </section>
