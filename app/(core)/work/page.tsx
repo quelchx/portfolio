@@ -12,8 +12,9 @@ export default function Page() {
           Experience
         </Heading>
         <SubHeading>
-          I have worked with a variety of companies and clients over the years.
-          Here are some of the projects I&apos;ve worked on.
+          I have been working professionally for nearly 5 years. During this
+          time, I have had the opportunity to work with the following
+          organizations:
         </SubHeading>
 
         <div className="mt-12">

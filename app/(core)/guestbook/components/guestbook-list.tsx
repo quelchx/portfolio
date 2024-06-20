@@ -7,15 +7,15 @@ import { Spinner } from "@/components/base/spinner";
 import { Warning } from "@/components/base/warning";
 
 export function GuestbookList() {
-  const query = usePosts();
+  const { data, isLoading, error, isError } = usePosts();
 
-  if (query.isLoading) return <Spinner />;
-  if (query.isError) return <Warning message={query.error.message} />;
+  if (isLoading) return <Spinner />;
+  if (isError) return <Warning message={error.message} />;
 
-  return query.data ? (
+  return data ? (
     <ul className="dark:border-neutral-700 grid grid-cols-1 gap-8 max-h-[480px] overflow-y-auto">
-      {query.data.length > 0 ? (
-        query.data.map((post) => (
+      {data.length > 0 ? (
+        data.map((post) => (
           <li className="flow-root" key={post.id}>
             <div className="group">
               <article className="flex items-center gap-x-4">

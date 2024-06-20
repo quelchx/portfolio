@@ -6,21 +6,18 @@ import { Warning } from "@/components/base/warning";
 import { ProjectCard } from "./project-card";
 
 export function ProjectList() {
-  const query = useRepositories();
+  const { data, isLoading, error, isError } = useRepositories();
 
-  if (query.isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
-  if (query.isError)
+  if (isError)
     return (
-      <Warning
-        title="Failed to fetch repositories"
-        message={query.error.message}
-      />
+      <Warning title="Failed to fetch repositories" message={error.message} />
     );
 
-  return query.data ? (
+  return data ? (
     <ul className="grid md:grid-cols-2 my-12 gap-12 gap-y-24">
-      {query.data?.map((repo) => (
+      {data?.map((repo) => (
         <ProjectCard key={repo.name} {...repo} />
       ))}
     </ul>

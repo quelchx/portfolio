@@ -1,6 +1,5 @@
-import { STACK } from "@/constants";
 import { StackHero } from "./components/stack-hero";
-import { StackCard } from "./components/stack-card";
+import { StackList } from "./components/stack-list";
 
 export default function Page() {
   return (
@@ -9,9 +8,7 @@ export default function Page() {
         <StackHero />
 
         <div className="mt-12 flex flex-col space-y-8 border-t dark:border-neutral-700">
-          {STACK.map((stack) => (
-            <StackCard {...stack} key={stack.section} />
-          ))}
+          <StackList />
         </div>
       </div>
     </section>

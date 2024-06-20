@@ -14,7 +14,7 @@ export function usePosts() {
   }
 
   return useQuery({
-    queryKey: ["guestbook-posts"],
+    queryKey: ["guestbook"],
     queryFn: fetcher,
     refetchOnMount: false,
     refetchOnWindowFocus: false,

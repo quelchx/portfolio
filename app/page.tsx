@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -8,10 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Route } from "@/components/base/route";
 import { Heading, SubHeading, Text } from "@/components/base/typography";
 
-import type { Article } from "@/types";
-import { getImageUrl } from "@/lib/utils";
-import { useBlogPosts } from "@/store/useBlog";
 import { OVERVIEW } from "@/constants";
+
+import { LatestPosts } from "./components/latest-posts";
 
 const TreeCanvas = dynamic(
   () => import("@/components/base/tree-canvas").then((mod) => mod.TreeCanvas),
@@ -20,41 +17,7 @@ const TreeCanvas = dynamic(
   }
 );
 
-function ArticleSnippet(props: Article) {
-  return (
-    <li className="flow-root">
-      <a href="#" className="group">
-        <div className="flex items-center gap-x-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={getImageUrl({
-              collection: "articles",
-              id: props.id,
-              image: props.image,
-            })}
-            className="size-10 rounded-xl dark:border dark:border-neutral-700"
-          />
-          <div className="text-sm leading-6">
-            <p className="font-semibold text-black dark:text-white group-hover:text-blue-400 duration-200">
-              {props.title}
-            </p>
-            <p className="text-neutral-500 text-sm dark:text-neutral-400">
-              {props.created}
-            </p>
-          </div>
-        </div>
-        <div
-          className="text-neutral-500 mt-4 dark:text-neutral-400 line-clamp-2 text-sm"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
-      </a>
-    </li>
-  );
-}
-
 export default function Home() {
-  const query = useBlogPosts();
   return (
     <section className="flex flex-col space-y-12">
       {/* hero */}
@@ -80,8 +43,8 @@ export default function Home() {
               </span>
             </h1>
             <Text>
-              Experienced Full Stack Developer with a proven track record in
-              developing and re-engineering high-impact applications.
+              Experienced Full Stack Developer with a strong history of creating
+              and optimizing high-impact applications.
             </Text>
           </div>
           <div className="flex flex-row gap-2 items-center">
@@ -109,14 +72,14 @@ export default function Home() {
           My <span className="text-blue-600 dark:text-blue-500">Services</span>
         </Heading>
         <SubHeading>
-          I specialize in designing and building high-quality digital products.
+          I specialize in designing and developing top-tier digital products.
         </SubHeading>
         <div className="border-t border-dashed dark:border-neutral-700 pt-6 mt-4">
           <Text>
-            Consider engaging my services for your website, app, or other
-            digital product design needs. My expertise spans UI/UX design,
-            wireframing, prototyping, and visual design, backed by a broad skill
-            set and extensive experience.
+            Consider my services for your website, app, or other digital product
+            design needs. With expertise in UI/UX design, wireframing,
+            prototyping, and visual design, I bring a broad skill set and
+            extensive experience to every project.
           </Text>
           <ul className="mt-4 text-neutral-500 space-y-1 list-disc text-sm list-inside dark:text-neutral-400">
             {OVERVIEW.map((service) => (
@@ -135,14 +98,11 @@ export default function Home() {
           Articles
         </Heading>
         <SubHeading>
-          I write about web development, design, and other topics.
+          I enjoy writing about web development, design, and various other
+          topics.
         </SubHeading>
 
-        <ul className="grid md:grid-cols-2 mt-4 gap-12 gap-y-24 gap-x-6 border-t border-dashed dark:border-neutral-700 pt-12 pb-6">
-          {query.data?.slice(0, 2).map((article) => (
-            <ArticleSnippet key={article.title} {...article} />
-          ))}
-        </ul>
+        <LatestPosts />
         <div className="flex flex-wrap border-t justify-end dark:border-neutral-700 pt-6 mt-6">
           <Route href="/blog" label="Read more articles →" />
         </div>

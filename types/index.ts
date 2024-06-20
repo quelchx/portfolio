@@ -25,11 +25,20 @@ export type Service = {
   label: string;
   pricing: string;
   description: string;
-  services: string[];
   details: string;
+  services: string[];
 } & CollectionBase;
 
 export type Post = {
   name: string;
   message: string;
 } & CollectionBase;
+
+export type Stack = {
+  section: string;
+  items: {
+    name: string;
+    description: string;
+    icon: string;
+  }[];
+};

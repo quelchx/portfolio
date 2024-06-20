@@ -1,8 +1,8 @@
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
-import { SERVICES } from "@/constants";
-import { ServiceCard } from "./components/service-card";
+
 import { ServiceHero } from "./components/service-hero";
+import { ServiceList } from "./components/service-list";
 
 export default function Page() {
   return (
@@ -26,9 +26,7 @@ export default function Page() {
           </Button>
         </div>
         <div className="mt-12 flex flex-col space-y-8 border-t dark:border-neutral-700">
-          {SERVICES.map((service) => (
-            <ServiceCard {...service} key={service.label} />
-          ))}
+          <ServiceList />
         </div>
       </div>
     </section>

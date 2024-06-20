@@ -3,10 +3,17 @@ const SERVICES = [
     skill: "Full Stack Development",
     label: "Fast Development",
     pricing: "Contact for pricing.",
-    description:
-      "I provide full-stack development services that cover everything from the front-end to the back-end. I use the latest technologies to build fast, responsive, and scalable web applications.",
-    details:
-      "I offer comprehensive full-stack development services, ensuring your web applications are robust, scalable, and efficient. Leveraging the latest technologies, I build solutions that deliver exceptional performance and responsiveness, catering to both front-end and back-end needs. My approach ensures seamless integration across all layers of your application, providing a cohesive and reliable user experience.",
+    description: `I provide full-stack development 
+    services that cover everything from the front-end to the back-end. 
+    I use the latest technologies to build fast, responsive, 
+    and scalable web applications.`,
+    details: `I offer comprehensive full-stack development 
+    services, ensuring your web applications are robust, 
+    scalable, and efficient. Leveraging the latest technologies, 
+    I build solutions that deliver exceptional performance and responsiveness, 
+    catering to both front-end and back-end needs. 
+    My approach ensures seamless integration across all layers of your 
+    application, providing a cohesive and reliable user experience.`,
     services: [
       "Front-End Development",
       "Back-End Development",

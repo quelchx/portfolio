@@ -12,7 +12,7 @@ function useBlogPost(id: string) {
   }
 
   return useQuery({
-    queryKey: ["blog-post", id],
+    queryKey: ["post", id],
     queryFn: () => fetcher(id),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
@@ -33,7 +33,7 @@ function useBlogPosts() {
   }
 
   const query = useQuery({
-    queryKey: ["blog-posts"],
+    queryKey: ["posts"],
     queryFn: fetcher,
     refetchOnWindowFocus: false,
     refetchOnMount: false,

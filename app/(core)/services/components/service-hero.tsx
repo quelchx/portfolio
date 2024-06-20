@@ -27,7 +27,9 @@ export function ServiceHero() {
         </div>
       </Heading>
       <SubHeading>
-        I offer a variety of services to help you with your project.
+        I am actively seeking full-time or part-time opportunities. If your
+        project requires a developer, designer, or consultant, I invite you to
+        consider my services.
       </SubHeading>
     </div>
   );
