@@ -28,7 +28,10 @@ export function BlogArticle(props: { id: string }) {
       </SubHeading>
 
       <div className="border-t dark:border-neutral-700 pt-8">
-        <div dangerouslySetInnerHTML={{ __html: query.data.body }}></div>
+        <div
+          className="flex flex-col items-start space-y-4 markdown-body"
+          dangerouslySetInnerHTML={{ __html: query.data.body }}
+        />
       </div>
     </Fragment>
   ) : null;
