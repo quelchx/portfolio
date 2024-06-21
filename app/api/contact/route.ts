@@ -4,7 +4,7 @@ import * as nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_KEY,
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     };
 
     const info = await transporter.sendMail({
-      from: body.email, // sender address
+      from: body.email,
       to: "quelchx@gmail.com",
       subject: `Form submission from ${body.company} - ${body.firstName} ${body.lastName}`, // Subject line
       text: body.message,
