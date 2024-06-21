@@ -1,5 +1,5 @@
-import { StackHero } from "./components/stack-hero";
-import { StackList } from "./components/stack-list";
+import { StackHero } from "@/components/partials/stack/stack-hero";
+import { StackList } from "@/components/partials/stack/stack-list";
 
 export default function Page() {
   return (

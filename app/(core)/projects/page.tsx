@@ -1,5 +1,5 @@
 import { SubHeading, Heading } from "@/components/base/typography";
-import { ProjectList } from "./components/project-list";
+import { ProjectList } from "@/components/partials/projects/project-list";
 
 export default function Page() {
   return (

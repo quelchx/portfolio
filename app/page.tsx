@@ -8,8 +8,8 @@ import { Heading, SubHeading, Text } from "@/components/base/typography";
 
 import { OVERVIEW } from "@/constants";
 
-import { LatestPosts } from "./components/latest-posts";
-import { ServicesHero } from "./components/services-hero";
+import { LatestPosts } from "@/components/partials/home/latest-posts";
+import { ServicesHero } from "@/components/partials/home/services-hero";
 
 const TreeCanvas = dynamic(
   () => import("@/components/base/tree-canvas").then((mod) => mod.TreeCanvas),
@@ -48,18 +48,20 @@ export default function Home() {
             </Text>
           </div>
           <div className="flex flex-row gap-2 items-center">
-            <Button className="bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 hover:bg-blue-500 text-neutral-100 outline-none border-none">
-              <Link href="/contact">Contact Me</Link>
-            </Button>
-            <Button className="bg-purple-900 dark:bg-purple-800 dark:hover:bg-purple-700 hover:bg-purple-500 text-neutral-100 outline-none border-none">
-              <a
-                href="https://github.com/quelchx"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Link href="/contact">
+              <Button className="bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700 hover:bg-blue-500 text-neutral-100 outline-none border-none">
+                Contact Me
+              </Button>
+            </Link>
+            <a
+              href="https://github.com/quelchx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-purple-900 dark:bg-purple-800 dark:hover:bg-purple-700 hover:bg-purple-500 text-neutral-100 outline-none border-none">
                 My Github
-              </a>
-            </Button>
+              </Button>
+            </a>
           </div>
         </div>
         <div className="h-[400px] hidden lg:block">

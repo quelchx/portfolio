@@ -23,7 +23,6 @@ export function ServicesHero() {
               }}
             />
           </span>
-          <span>?</span>
         </div>
       </Heading>
       <SubHeading>

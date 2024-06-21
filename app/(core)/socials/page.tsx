@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Heading, SubHeading } from "@/components/base/typography";
-import { SocialCard } from "./component/social-card";
+import { SocialCard } from "@/components/partials/social/social-card";
 import { SOCIALS } from "@/constants";
 
 export default function Page() {

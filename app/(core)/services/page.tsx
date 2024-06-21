@@ -1,8 +1,7 @@
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
-
-import { ServiceHero } from "./components/service-hero";
-import { ServiceList } from "./components/service-list";
+import { ServiceHero } from "@/components/partials/services/service-hero";
+import { ServiceList } from "@/components/partials/services/service-list";
 
 export default function Page() {
   return (

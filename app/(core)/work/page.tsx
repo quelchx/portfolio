@@ -1,7 +1,7 @@
 import { EXPERIENCE } from "@/constants";
 
 import { Heading, SubHeading } from "@/components/base/typography";
-import { WorkCard } from "./components/work-card";
+import { WorkCard } from "@/components/partials/work/work-card";
 
 export default function Page() {
   return (

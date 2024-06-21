@@ -1,5 +1,5 @@
-import { BlogHero } from "./components/blog-hero";
-import { BlogList } from "./components/blog-list";
+import { BlogHero } from "@/components/partials/blog/blog-hero";
+import { BlogList } from "@/components/partials/blog/blog-list";
 
 export default function Page() {
   return (

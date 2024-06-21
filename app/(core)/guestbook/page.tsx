@@ -1,6 +1,6 @@
 import { Heading, SubHeading } from "@/components/base/typography";
-import { GuestbookList } from "./components/guestbook-list";
-import { GuestbookForm } from "./components/guestbook-form";
+import { GuestbookList } from "@/components/partials/guestbook/guestbook-list";
+import { GuestbookForm } from "@/components/partials/guestbook/guestbook-form";
 
 export default function Page() {
   return (

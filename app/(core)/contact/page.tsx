@@ -1,5 +1,5 @@
-import { ContactForm } from "./components/contact-form";
-import { ContactHero } from "./components/contact-hero";
+import { ContactForm } from "@/components/partials/contact/contact-form";
+import { ContactHero } from "@/components/partials/contact/contact-hero";
 
 export default function Page() {
   return (
