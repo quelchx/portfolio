@@ -51,7 +51,7 @@ export function ContactForm() {
     if (form.formState.isDirty) {
       form.reset();
       toast({
-        duration: 1000,
+        duration: 3000,
         title: "Form reset",
         description: "The form has been reset.",
       });
