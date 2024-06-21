@@ -15,7 +15,7 @@ export function Footer() {
             </div>
             <div className="leading-6 text-neutral-500 dark:text-neutral-200 text-sm flex flex-wrap justify-between w-full">
               <nav className="flex-wrap  flex gap-y-3  gap-x-8">
-                <Route href="/home" label="Home" />
+                <Route href="/" label="Home" />
                 <Route href="/projects" label="Projects" />
                 <Route href="/socials" label="Socials" />
                 <Route href="/blog" label="Blog" />
