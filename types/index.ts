@@ -30,7 +30,7 @@ export type Service = {
 } & CollectionBase;
 
 export type Post = {
-  name: string;
+  from: string;
   message: string;
 } & CollectionBase;
 

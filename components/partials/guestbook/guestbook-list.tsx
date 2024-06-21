@@ -13,16 +13,19 @@ export function GuestbookList() {
   if (isError) return <Warning message={error.message} />;
 
   return data ? (
-    <ul className="dark:border-neutral-700 grid grid-cols-1 gap-8 max-h-[480px] overflow-y-auto">
+    <ul className="dark:border-neutral-700 grid grid-cols-1 gap-8 max-h-[480px] overflow-y-auto pt-8">
       {data.length > 0 ? (
         data.map((post) => (
           <li className="flow-root" key={post.id}>
             <div className="group">
               <article className="flex items-center gap-x-4">
-                <div className="size-10 rounded-xl dark:border dark:border-neutral-700 relative top-[1px]" />
+                <div
+                  className="size-10 rounded-xl dark:border dark:border-neutral-700 relative top-[1px]
+                dark:bg-neutral-800"
+                />
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-black dark:text-white group-hover:text-blue-400 duration-200">
-                    {post.name}
+                    {post.from}
                   </p>
                   <p className="text-neutral-500 text-sm dark:text-neutral-400">
                     {dayjs(post.created).format("MMMM D, YYYY")}
