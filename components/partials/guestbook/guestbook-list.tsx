@@ -1,8 +1,8 @@
 "use client";
 
 import dayjs from "dayjs";
+import { Icon } from "@iconify/react";
 import { usePosts } from "@/store/usePosts";
-
 import { Spinner } from "@/components/base/spinner";
 import { Warning } from "@/components/base/warning";
 
@@ -19,8 +19,9 @@ export function GuestbookList() {
           <li className="flow-root" key={post.id}>
             <div className="group">
               <article className="flex items-center gap-x-4">
-                <div
-                  className="size-10 rounded-xl dark:border dark:border-neutral-700 relative top-[1px]
+                <Icon
+                  icon="mingcute:user-4-fill"
+                  className="size-10 rounded-full dark:border dark:border-neutral-700 relative top-[1px]
                 dark:bg-neutral-800"
                 />
                 <div className="text-sm leading-6">
