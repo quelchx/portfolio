@@ -1,8 +1,14 @@
-import { Icon } from "@iconify/react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ServiceHero } from "@/components/partials/services/service-hero";
 import { ServiceList } from "@/components/partials/services/service-list";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Services",
+  description:
+    "Here are some of the services I offer. I am always happy to help you with your project or business.",
+};
 
 export default function Page() {
   return (

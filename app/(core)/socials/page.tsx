@@ -5,6 +5,14 @@ import { Heading, SubHeading } from "@/components/base/typography";
 import { SocialCard } from "@/components/partials/social/social-card";
 import { SOCIALS } from "@/constants";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Connect With Me",
+  description:
+    "I am active on a few social media platforms. Feel free to connect with me on any of the following.",
+};
+
 export default function Page() {
   return (
     <section className="page-wrapper">

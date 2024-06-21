@@ -1,6 +1,14 @@
 import { SubHeading, Heading } from "@/components/base/typography";
 import { ProjectList } from "@/components/partials/projects/project-list";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Projects",
+  description:
+    "Here are some of the projects I've worked on over the years. I also have contributed to a few open-source projects. You can find them on my GitHub profile.",
+};
+
 export default function Page() {
   return (
     <section className="page-wrapper">

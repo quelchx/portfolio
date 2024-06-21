@@ -3,6 +3,14 @@ import { EXPERIENCE } from "@/constants";
 import { Heading, SubHeading } from "@/components/base/typography";
 import { WorkCard } from "@/components/partials/work/work-card";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Work Experience",
+  description:
+    "I have been working professionally for nearly 5 years. During this time, I have had the opportunity to work with the following organizations.",
+};
+
 export default function Page() {
   return (
     <section className="page-wrapper">

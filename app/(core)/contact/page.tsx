@@ -1,5 +1,12 @@
 import { ContactForm } from "@/components/partials/contact/contact-form";
 import { ContactHero } from "@/components/partials/contact/contact-hero";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Get In Touch",
+  description:
+    "Contact me for any inquiries or questions. I am always happy to help.",
+};
 
 export default function Page() {
   return (

@@ -2,6 +2,14 @@ import { Heading, SubHeading } from "@/components/base/typography";
 import { GuestbookList } from "@/components/partials/guestbook/guestbook-list";
 import { GuestbookForm } from "@/components/partials/guestbook/guestbook-form";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guestbook - Leave a Message",
+  description:
+    "Sign my guestbook and leave a message. I always enjoy hearing from people. Your name and message will be displayed publicly. Please be kind and thank you in advance.",
+};
+
 export default function Page() {
   return (
     <section className="page-wrapper">
