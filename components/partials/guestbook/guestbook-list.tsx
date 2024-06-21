@@ -36,7 +36,7 @@ export function GuestbookList() {
           </li>
         ))
       ) : (
-        <li className="text-neutral-500 dark:text-neutral-400 text-center">
+        <li className="text-neutral-500 dark:text-neutral-400 text-center py-12">
           No posts yet 😢
         </li>
       )}

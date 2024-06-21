@@ -1,36 +1,25 @@
-"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { BlogArticle } from "@/components/partials/blog/blog-article";
+import type { PageQuery } from "@/types";
 
-import dayjs from "dayjs";
-import { useBlogPost } from "@/store/useBlog";
-import { Heading, SubHeading } from "@/components/base/typography";
-import { Spinner } from "@/components/base/spinner";
-import { Warning } from "@/components/base/warning";
+export async function generateMetadata(props: PageQuery<{ title: string }>) {
+  return {
+    title: `${props.searchParams.title} - Blog`,
+  };
+}
 
 export default function Page(props: { params: { slug: string } }) {
-  const query = useBlogPost(props.params.slug);
-
-  if (query.isLoading) return <Spinner />;
-
-  if (query.isError)
-    return (
-      <Warning
-        title="Failed to fetch blog post"
-        message={query.error.message}
-      />
-    );
-
-  return query.data ? (
+  return (
     <section className="page-wrapper">
-      <div className="px-12 pt-4 pb-12">
-        <Heading>{query.data.title}</Heading>
-        <SubHeading>
-          Posted on {dayjs(query.data.created).format("MMMM D, YYYY")}
-        </SubHeading>
-
-        <div className="mt-12 lg:mt-18 border-t dark:border-neutral-700 pt-12">
-          <div dangerouslySetInnerHTML={{ __html: query.data.body }}></div>
-        </div>
+      <div className="px-12 pt-4 pb-12 flex flex-col space-y-4 items-start">
+        <BlogArticle id={props.params.slug} />
+        <Link href="/blog">
+          <Button size="sm" className="flex space-x-2 items-center">
+            <span>Back to blog</span>
+          </Button>
+        </Link>
       </div>
     </section>
-  ) : null;
+  );
 }

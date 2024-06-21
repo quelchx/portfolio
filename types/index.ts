@@ -42,3 +42,7 @@ export type Stack = {
     icon: string;
   }[];
 };
+
+export type PageQuery<T> = {
+  searchParams: T;
+};

@@ -7,7 +7,7 @@ import type { Article } from "@/types";
 export function BlogCard(props: Article) {
   return (
     <li>
-      <Link href={`/blog/${props.id}`} className="group">
+      <Link href={`/blog/${props.id}?title=${props.title}`} className="group">
         <article className="flex-1 h-full flex flex-col">
           <div className="aspect-16/9 overflow-hidden rounded-lg border dark:border-neutral-700">
             {/* eslint-disable-next-line @next/next/no-img-element */}
