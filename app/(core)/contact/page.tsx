@@ -14,11 +14,17 @@ export default function Page() {
       <div className="px-12 pt-4 pb-12">
         <ContactHero />
 
-        <div className="mt-12 lg:mt-18 border-t dark:border-neutral-700 pt-12">
+        <div className="mt-12 lg:mt-18 border-t dark:border-neutral-700 lg:pt-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start py-12">
-            <p className="text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-blue-400">
-              Contact Me
-            </p>
+            <div>
+              <p className="text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-blue-400">
+                Contact Me
+              </p>
+              <p className="mt-2 text-base text-neutral-500 dark:text-neutral-400">
+                I will get back to you as soon as possible. Feel free to ask me
+                anything.
+              </p>
+            </div>
             <ContactForm />
           </div>
         </div>

@@ -20,9 +20,9 @@ const TreeCanvas = dynamic(
 
 export default function Home() {
   return (
-    <section className="flex flex-col space-y-12">
-      <div className="flex flex-col lg:flex-row items-center w-full px-4 gap-2">
-        <div className="flex flex-col space-y-4 container px-8 py-16">
+    <section className="flex flex-col lg:space-y-12">
+      <div className="px-12 flex flex-col lg:flex-row items-center w-full gap-2">
+        <div className="flex flex-col space-y-4 w-full py-16">
           <div className="flex flex-col space-y-6 text-neutral-900 dark:text-neutral-300 dark:hover:text-blue-300 hover:text-blue-600 transition-all duration-300">
             <h1 className="text-[5em] font-extrabold text-left tracking-[-2px] leading-[0.7em]">
               Eric
@@ -69,7 +69,7 @@ export default function Home() {
         </div>
       </div>
       {/* services overview */}
-      <div className="px-12 py-4 mx-auto">
+      <div className="px-12 py-4">
         <ServicesHero />
         <div className="border-t border-dashed dark:border-neutral-700 pt-6 mt-4">
           <Text>
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
       </div>
       {/* latest articles */}
-      <div className="px-12 pt-4 pb-12 mx-auto">
+      <div className="px-12 pt-10 lg:pt-4 pb-12 mx-auto">
         <Heading>
           <span className="text-blue-600 dark:text-blue-500">Latest </span>
           Articles

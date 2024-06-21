@@ -1,8 +1,8 @@
-import { ModeToggle } from "./mode-toggle";
+import { Layout } from "./layout";
 import { DownloadCV } from "./download-cv";
 import { AvatarCard } from "./avatar-card";
 import { PageLinks } from "./page-links";
-import { Layout } from "./layout";
+import { ModeToggle } from "./mode-toggle";
 
 export const Shell = (props: { children: React.ReactNode }) => {
   return (
@@ -10,7 +10,6 @@ export const Shell = (props: { children: React.ReactNode }) => {
       <div className="fixed top-6 right-6">
         <ModeToggle />
       </div>
-
       <div className="z-50 hidden bg-white dark:bg-neutral-900 lg:flex md:w-72 md:flex-col md:fixed md:inset-y-0">
         <div className="flex flex-col flex-1 relative min-h-0 border-r bg-white dark:bg-neutral-900 dark:border-neutral-700">
           <div className="flex flex-col flex-1 pt-12 pb-4 overflow-y-auto">

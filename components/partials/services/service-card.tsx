@@ -11,7 +11,7 @@ import type { ServiceProps } from "@/constants";
 
 export function ServiceCard(props: ServiceProps) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-6 items-start p-12 mt-12  bg-neutral-100 dark:bg-neutral-800 rounded-2xl">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-6 items-start p-12 mt-12  bg-neutral-100 dark:bg-neutral-800 rounded-2xl">
       <p className="text-lg font-semibold leading-6 text-blue-500 dark:text-blue-400 group-hover:text-blue-400">
         {props.skill}
       </p>
