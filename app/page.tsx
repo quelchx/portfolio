@@ -84,7 +84,7 @@ export default function Home() {
             ))}
           </ul>
           <div className="flex flex-wrap border-t justify-end dark:border-neutral-700 pt-6 mt-6">
-            <Route href="/" label="Learn more about my services →" />
+            <Route href="/services" label="Learn more about my services →" />
           </div>
         </div>
       </div>
