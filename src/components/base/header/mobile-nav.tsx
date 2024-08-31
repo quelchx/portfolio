@@ -5,7 +5,7 @@ import { useState } from "react";
 import { siteConfig } from "@/config/site.config";
 import { MenuIcon } from "lucide-react";
 
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/shared/icons";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 

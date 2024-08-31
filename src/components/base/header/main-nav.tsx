@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/shared/icons";
 import { siteConfig } from "@/config/site.config";
 
 import { NavLink } from "./nav-link";

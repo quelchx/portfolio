@@ -3,12 +3,10 @@
 import { Fragment, useMemo, useState } from "react";
 import { posts } from "#site/content";
 
-import { Input } from "./ui/input";
+import { Input } from "@/components/ui/input";
 import { PostItem } from "./post-item";
 
-type BlogPostProps = {
-  posts: typeof posts;
-};
+type BlogPostProps = { posts: typeof posts };
 
 export function BlogPosts(props: BlogPostProps) {
   const [search, setSearch] = useState("");
@@ -26,7 +24,7 @@ export function BlogPosts(props: BlogPostProps) {
 
   return (
     <Fragment>
-      <div className="flex items-center pb-2">
+      <div className="flex items-center space-x-2 pb-2">
         <Input
           type="search"
           name="search"

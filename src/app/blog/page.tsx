@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { posts } from "#site/content";
-import { Tag } from "@/components/tag";
-import { PostItem } from "@/components/post-item";
-import { QueryPagination } from "@/components/query-pagination";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { getAllTags, sortPosts, sortTagsByCount } from "@/lib/utils";
-import { BlogPosts } from "@/components/blog-posts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Tag } from "@/components/shared/tag";
+import { BlogPosts } from "@/components/shared/blog-posts";
+import { QueryPagination } from "@/components/shared/query-pagination";
 
 export const metadata: Metadata = {
   title: "My blog",

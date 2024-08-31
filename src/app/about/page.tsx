@@ -1,6 +1,8 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { siteConfig } from "@/config/site.config";
 import { Metadata } from "next";
+import { siteConfig } from "@/config/site.config";
+import { Projects } from "@/components/base/projects/projects";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { stack, StackCard } from "@/components/base/projects/stack-card";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -18,7 +20,7 @@ export default async function AboutPage() {
         </div>
       </div>
       <hr className="my-8" />
-      <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
         <div className="min-w-48 max-w-48 flex flex-col gap-2">
           <Avatar className="h-48 w-48">
             <AvatarImage
@@ -27,32 +29,68 @@ export default async function AboutPage() {
             />
             <AvatarFallback>JC</AvatarFallback>
           </Avatar>
-          <h2 className="text-2xl font-bold text-center break-words">
-            {siteConfig.author}
-          </h2>
-          <p className="text-muted-foreground text-center break-words">
-            Software Developer
-          </p>
+          <div className="flex flex-col space-y-[-2px]">
+            <h2 className="text-2xl font-bold break-words">
+              Software Developer
+            </h2>
+            <div className="flex space-x-1 items-center text-muted-foreground cursor-pointer text-sm break-words">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+                className="w-5 h-5 relative top-[2px]"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="m9 15l6-6m-4-3l.463-.536a5 5 0 0 1 7.071 7.072L18 13m-5 5l-.397.534a5.07 5.07 0 0 1-7.127 0a4.97 4.97 0 0 1 0-7.071L6 11"
+                ></path>
+              </svg>
+              <a
+                href="/eric_quelch_resume.pdf"
+                download="Eric_Quelch_Resume.pdf"
+                className="text-muted-foreground hover:dark:text-purple-400 hover:text-purple-600"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
         </div>
         <div>
-          <p className="text-muted-foreground text-lg py-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
-          </p>{" "}
-          <p className="text-muted-foreground text-lg py-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
-          </p>
+          <div className="flex flex-col space-y-2 mb-6">
+            <h2 className="font-black text-xl">
+              Hi, I&apos;m {siteConfig.author} 👋
+            </h2>
+            <p className="text-neutral-700 dark:text-neutral-300 text-balance">
+              I am a software developer with a passion for creating and building
+              things. I have experience in web development, mobile development,
+              and cloud computing. I am always looking for new opportunities to
+              learn and grow as a developer.
+            </p>
+            <h2 className="font-black text-xl">Projects of Mine</h2>
+            <p className="text-neutral-700 dark:text-neutral-300">
+              Here are some of the projects I have worked on. You can find more
+              on my GitHub profile.
+            </p>
+          </div>
+          <Projects />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4 mt-8">
+        <h2 className="font-black text-2xl">My Stack</h2>
+        <p className="text-neutral-700 dark:text-neutral-300 text-balance">
+          Here are some of the technologies I have experience with. My stack is
+          always evolving as I learn new technologies.
+        </p>
+        <div className="max-h-[600px] overflow-auto pr-4">
+          {stack.map((s) => (
+            <StackCard {...s} key={s.section} />
+          ))}
         </div>
       </div>
     </div>

@@ -3,12 +3,15 @@ import dynamic from "next/dynamic";
 
 import { posts } from "#site/content";
 import { cn, sortPosts } from "@/lib/utils";
-import { PostItem } from "@/components/post-item";
+import { PostItem } from "@/components/shared/post-item";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site.config";
 
 const TreeCanvas = dynamic(
-  () => import("@/components/tree-canvas").then((mod) => mod.TreeCanvas),
+  () =>
+    import("@/components/base/canvas/tree-canvas").then(
+      (mod) => mod.TreeCanvas
+    ),
   {
     ssr: false,
   }

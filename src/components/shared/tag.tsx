@@ -7,6 +7,7 @@ type TagProps = {
   current?: boolean;
   count?: number;
 };
+
 export function Tag(props: TagProps) {
   const { tag, current, count } = props;
   return (

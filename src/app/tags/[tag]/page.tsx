@@ -2,11 +2,12 @@ import { Metadata } from "next";
 import { slug } from "github-slugger";
 import { posts } from "#site/content";
 
-import { Tag } from "@/components/tag";
-import { BlogPosts } from "@/components/blog-posts";
-import { QueryPagination } from "@/components/query-pagination";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Tag } from "@/components/shared/tag";
+import { BlogPosts } from "@/components/shared/blog-posts";
+import { QueryPagination } from "@/components/shared/query-pagination";
 
 type TagPageProps = {
   params: { tag: string };
@@ -43,6 +44,10 @@ export default function TagPage(props: TagPageProps) {
           <h1 className="inline-block font-black text-4xl lg:text-5xl capitalize">
             {params.tag.split("-").join(" ")}
           </h1>
+          <p className="text-lg text-neutral-500 dark:text-neutral-400">
+            View <strong>{tags[params.tag.split("-").join(" ")] || 0}</strong>{" "}
+            posts on this topic.
+          </p>
         </div>
       </div>
       <div className="grid grid-cols-12 gap-3 mt-8">

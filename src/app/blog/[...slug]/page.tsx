@@ -1,14 +1,29 @@
 import "@/styles/mdx.css";
+import Image from "next/image";
+import * as runtime from "react/jsx-runtime";
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { posts } from "#site/content";
-import { MDXContent } from "@/components/mdx-components";
-import { Tag } from "@/components/tag";
+import { Tag } from "@/components/shared/tag";
 import { siteConfig } from "@/config/site.config";
 
-type PostPageProps = {
-  params: { slug: string[] };
-};
+import { Callout } from "@/components/shared/callout";
+
+type MDXProps = { code: string };
+type PostPageProps = { params: { slug: string[] } };
+
+function useMDXComponent(code: string) {
+  const fn = new Function(code);
+  return fn({ ...runtime }).default;
+}
+
+const components = { Image, Callout };
+
+function MDXContent(props: MDXProps) {
+  const Component = useMDXComponent(props.code);
+  return <Component components={components} />;
+}
 
 async function getPostFromParams(params: PostPageProps["params"]) {
   const slug = params?.slug?.join("/");
@@ -21,10 +36,10 @@ export async function generateStaticParams(): Promise<
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams(params);
+export async function generateMetadata(
+  props: PostPageProps
+): Promise<Metadata> {
+  const post = await getPostFromParams(props.params);
 
   if (!post || !post.published) {
     notFound();
