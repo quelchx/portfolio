@@ -1,24 +1,24 @@
 ---
-title: Lets see what we can do with rehype pretty code
-description: Syntax highlighting, line numbers, line highlights, word highlights
+title: Discovering the Power of Rehype Pretty Code
+description: Elevate your code presentation with syntax highlighting, line numbers, and more.
 date: 2024-03-04
-tags: ["code", "rehype pretty", "mdx"]
+tags: ["code", "rehype", "syntax highlighting", "mdx"]
 published: true
 ---
 
-[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by the
-[`shiki`](https://github.com/shikijs/shiki) syntax highlighter that provides beautiful code blocks for Markdown or MDX. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+[`rehype-pretty-code`](https://github.com/atomiks/rehype-pretty-code) is a versatile Rehype plugin that leverages the [`shiki`](https://github.com/shikijs/shiki) syntax highlighter to provide visually stunning code blocks in Markdown and MDX files. It works both during the build process on the server side—eliminating the need for client-side syntax highlighting—and dynamically on the client side when needed.
 
-## Editor-Grade Highlighting
+## Professional-Level Syntax Highlighting
 
 <span className="mix-blend-plus-lighter text-zinc-400/80">
-  Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
-  the popularity of its themes ecosystem — use any VS Code theme you want!
+  Experience the precision and detail of VS Code's syntax highlighting directly
+  in your Markdown or MDX files, complete with support for the extensive range
+  of themes available in the VS Code ecosystem.
 </span>
 
-## Line Numbers and Line Highlighting
+## Line Numbers and Highlighting
 
-Draw attention to a particular line of code.
+Easily draw attention to specific lines in your code, making it clear where to focus.
 
 ```js {4} showLineNumbers
 import { useFloating } from "@floating-ui/react";
@@ -35,45 +35,29 @@ function MyComponent() {
 }
 ```
 
-## Word Highlighting
+## Terminal Output with ANSI Coloring
 
-Draw attention to a particular word or series of characters.
+Recreate the look and feel of terminal output with ANSI highlighting, great for displaying shell commands or log output.
+Terminal Output with ANSI Coloring
 
-```js /floatingStyles/
-import { useFloating } from "@floating-ui/react";
-
-function MyComponent() {
-  const { refs, floatingStyles } = useFloating();
-
-  return (
-    <>
-      <div ref={refs.setReference} />
-      <div ref={refs.setFloating} style={floatingStyles} />
-    </>
-  );
-}
-```
-
-## ANSI Highlighting
+Recreate the look and feel of terminal output with ANSI highlighting, great for displaying shell commands or log output.
 
 ```ansi
-[0;36m  vite v5.0.0[0;32m dev server running at:[0m
+[0;36m vite v5.0.0[0;32m dev server running at:[0m
 
-  > Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m
-  > Network: [0;2muse `--host` to expose[0m
+> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m
+> Network: [0;2muse `--host` to expose[0m
 
-  [0;36mready in 125ms.[0m
+[0;36mready in 125ms.[0m
 
 [0;2m8:38:02 PM[0m [0;36;1m[vite][0m [0;32mhmr update [0;2m/src/App.jsx
 ```
 
-Inline ANSI: `> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m{:ansi}`
+## Combining Multiple Features with Meta Strings
 
----
+Use meta strings to combine multiple features like line numbers, line highlighting, and more, all within a single code block.
 
-### Kitchen Sink Meta Strings
-
-```js showLineNumbers {2-4} title="isEven.js" /console/ caption="Im a caption"
+```js
 function isEven(number) {
   if (number === 1) {
     return false;
@@ -101,7 +85,9 @@ function isEven(number) {
 }
 
 // Example usage:
-console.log(isEven(3)); // Should return false
-console.log(isEven(4)); // Should return true
-console.log(isEven(11)); // Should return "Number is not between 1 and 10."
+console.log(isEven(3)); // Outputs: false
+console.log(isEven(4)); // Outputs: true
+console.log(isEven(11)); // Outputs: "Number is not between 1 and 10."
 ```
+
+With rehype-pretty-code, you can turn your Markdown or MDX documents into visually compelling pieces of content that not only look good but also enhance the reader's understanding. Whether you're writing a blog post, documentation, or tutorials, these tools help ensure your code examples are clear, concise, and attractive.
