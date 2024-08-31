@@ -1,0 +1,107 @@
+---
+title: "My Love for Zustand"
+description: A heartfelt ode to Zustand, the simple yet powerful state management library that has won my heart. Discover how Zustand can transform your React applications with its elegant API and minimalistic approach.
+date: 2024-08-31
+tags: ["code", "react", "state", "zustand"]
+published: true
+---
+
+# My Love for Zustand
+
+In the bustling town of Reactville, developers go about their days, crafting components and managing state. But one fateful day, a new library arrives that changes the game: Zustand. This is the story of how Zustand won my heart and transformed the way I build React applications.
+
+## Before Zustand
+
+Before using Zustand in my projects, I relied on the traditional tools of the trade: React's built-in `useState` and `useReducer`. While these tools served me well, I often found myself writing boilerplate code to manage complex state logic. The more my applications grew, the more I felt the weight of managing state across multiple components.
+
+Sure you can use the Context API or Redux, but sometimes you just want a simple solution that doesn't require a lot of setup or ceremony.
+
+Normally something like this would be done with a Context Provider and a bunch of reducers and actions.
+
+```jsx
+import React, { createContext, useContext, useReducer } from "react";
+
+const initialState = {
+  count: 0,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+const StateContext = createContext();
+
+export const StateProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <StateContext.Provider value={{ state, dispatch }}>
+      {children}
+    </StateContext.Provider>
+  );
+};
+```
+
+To me this is a lot of boilerplate for something that should be simple. Zustand is a library that aims to solve this problem by providing a simple and elegant way to manage state in your React applications.
+
+## Enter Zustand
+
+Zustand is a small, fast, and scalable state management library that leverages the power of React hooks. With Zustand, you can create stores that hold your application state and expose it to your components using custom hooks. This approach allows you to manage state in a more intuitive and declarative way, without the need for complex abstractions or boilerplate code.
+
+Here's how you can create a simple counter store with Zustand:
+
+```jsx {3-9}
+import create from "zustand";
+
+export const useCounter = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+```
+
+And to use this store in your components:
+
+```jsx
+import React from "react";
+import { useCounter } from "./store";
+
+const Counter = () => {
+  const { count, increment, decrement } = useCounter();
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+```
+
+A lot less boilerplate and a lot more readable. Zustand's API is simple and intuitive, making it easy to create and manage stores in your application. You can also compose multiple stores together, share state between components, and subscribe to changes in your stores with ease.
+
+## Why I Love Zustand
+
+Zustand has won my heart for several reasons:
+
+- **Simplicity**: Zustand's API is simple and easy to understand, making it a joy to work with.
+
+- **Performance**: Zustand is fast and efficient, thanks to its minimalistic approach and optimized reactivity system.
+
+- **Scalability**: Zustand scales well with your application, allowing you to manage complex state logic with ease.
+
+- **Flexibility**: Zustand gives you the flexibility to create stores that fit your specific needs, without imposing unnecessary abstractions.
+
+- **Developer Experience**: Zustand enhances the developer experience by providing powerful tools like devtools and middleware support.
+
+## Conclusion
+
+Zustand has become an indispensable tool in my React toolkit, helping me build applications that are simpler, faster, and more maintainable. If you're looking for a state management library that is simple, powerful, and elegant, I highly recommend giving Zustand a try. You might just fall in love with it, like I did.
