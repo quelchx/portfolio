@@ -45,7 +45,7 @@ function SocialLink(props: SocialLinkProps) {
 
 export function Header() {
   return (
-    <header className="sticky top-0 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-100 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container max-w-5xl mx-auto flex h-14 items-center">
         <MainNav />
         <div className="flex flex-1 items-center justify-end space-x-2">
