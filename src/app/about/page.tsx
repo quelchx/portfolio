@@ -30,8 +30,9 @@ export default async function AboutPage() {
         <div className="min-w-48 max-w-48 flex flex-col gap-2">
           <HoverCard>
             <HoverCardTrigger asChild>
-              <Avatar className="h-48 w-48">
+              <Avatar className="h-48 w-48 static">
                 <AvatarImage
+                  className=""
                   src="https://avatars.githubusercontent.com/u/74473426?v=4"
                   alt={siteConfig.author}
                 />
@@ -91,14 +92,14 @@ export default async function AboutPage() {
             <h2 className="font-black text-xl">
               Hi, I&apos;m {siteConfig.author} 👋
             </h2>
-            <p className="text-neutral-700 dark:text-neutral-300 text-balance">
+            <p className="text-balance">
               I am a software developer with a passion for creating and building
               things. I have experience in web development, mobile development,
               and cloud computing. I am always looking for new opportunities to
               learn and grow as a developer.
             </p>
             <h2 className="font-black text-xl">Projects of Mine</h2>
-            <p className="text-neutral-700 dark:text-neutral-300">
+            <p className="text-balance">
               Here are some of the projects I have worked on. You can find more
               on my GitHub profile.
             </p>
@@ -109,7 +110,7 @@ export default async function AboutPage() {
 
       <div className="flex flex-col gap-4 mt-8">
         <h2 className="font-black text-2xl">My Stack</h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-balance">
+        <p className="text-balance">
           Here are some of the technologies I have experience with. My stack is
           always evolving as I learn new technologies.
         </p>
