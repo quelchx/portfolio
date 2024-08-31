@@ -18,7 +18,22 @@ function useMDXComponent(code: string) {
   return fn({ ...runtime }).default;
 }
 
-const components = { Image, Callout };
+const components = {
+  Image,
+  Callout,
+  h1: (props: any) => {
+    return <h1 className="text-3xl font-black mt-2 mb-3" {...props} />;
+  },
+  h2: (props: any) => {
+    return <h2 className="text-2xl font-black mt-2 mb-3" {...props} />;
+  },
+  h3: (props: any) => {
+    return <h3 className="text-xl font-black mt-2 mb-3" {...props} />;
+  },
+  h4: (props: any) => {
+    return <h4 className="text-lg font-black mt-2 mb-3" {...props} />;
+  },
+};
 
 function MDXContent(props: MDXProps) {
   const Component = useMDXComponent(props.code);

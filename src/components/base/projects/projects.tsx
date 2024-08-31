@@ -1,9 +1,10 @@
 "use client";
 
-import { Spinner } from "@/components/shared/spinner";
-import { ProjectCard } from "./project-card";
 import { useRepositories } from "@/hooks/useRepos";
+import { Spinner } from "@/components/shared/spinner";
 import { Warning } from "@/components/shared/warning";
+
+import { ProjectCard } from "./project-card";
 
 export function Projects() {
   const { data, isLoading, error, isError } = useRepositories();
@@ -17,7 +18,7 @@ export function Projects() {
 
   return data ? (
     <ul className="grid md:grid-cols-2 gap-8">
-      {data?.map((repo) => (
+      {data.map((repo) => (
         <ProjectCard key={repo.name} {...repo} />
       ))}
     </ul>

@@ -2,7 +2,13 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site.config";
 import { Projects } from "@/components/base/projects/projects";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { stack, StackCard } from "@/components/base/projects/stack-card";
+import { Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -22,15 +28,35 @@ export default async function AboutPage() {
       <hr className="my-8" />
       <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
         <div className="min-w-48 max-w-48 flex flex-col gap-2">
-          <Avatar className="h-48 w-48">
-            <AvatarImage
-              src="https://avatars.githubusercontent.com/u/74473426?v=4"
-              alt={siteConfig.author}
-            />
-            <AvatarFallback>JC</AvatarFallback>
-          </Avatar>
-          <div className="flex flex-col space-y-[-2px]">
-            <h2 className="text-2xl font-bold break-words">
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Avatar className="h-48 w-48">
+                <AvatarImage
+                  src="https://avatars.githubusercontent.com/u/74473426?v=4"
+                  alt={siteConfig.author}
+                />
+                <AvatarFallback>EQ</AvatarFallback>
+              </Avatar>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <div className="flex">
+                <div className="space-y-1">
+                  <h4 className="text-sm font-semibold">Me and Wile&apos;e</h4>
+                  <p className="text-sm text-balance">
+                    My Chihuahua, Jack Russell, and Dachshund mix.
+                  </p>
+                  <div className="flex items-center pt-2">
+                    <Heart className="mr-2 h-4 w-4 opacity-70" />{" "}
+                    <span className="text-xs text-muted-foreground">
+                      Love you forever buddy
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+          <div className="flex flex-col items-center space-y-[-2px]">
+            <h2 className="text-2xl font-bold break-words text-center">
               Software Developer
             </h2>
             <div className="flex space-x-1 items-center text-muted-foreground cursor-pointer text-sm break-words">
@@ -61,7 +87,7 @@ export default async function AboutPage() {
           </div>
         </div>
         <div>
-          <div className="flex flex-col space-y-2 mb-6">
+          <div className="flex flex-col space-y-4 mb-6">
             <h2 className="font-black text-xl">
               Hi, I&apos;m {siteConfig.author} 👋
             </h2>

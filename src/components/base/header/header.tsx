@@ -29,16 +29,16 @@ type SocialLinkProps = {
 function SocialLink(props: SocialLinkProps) {
   const { href, label } = props;
   return (
-    <Link href={href} target="_blank">
-      <div
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "w-10 px-0 hidden sm:inline-flex"
-        )}
-      >
-        <props.icon className="h-7 w-7" />
-        <span className="sr-only">{label}</span>
-      </div>
+    <Link
+      href={href}
+      target="_blank"
+      className={cn(
+        buttonVariants({ variant: "ghost" }),
+        "w-10 px-0 hidden sm:inline-flex glowing-icon"
+      )}
+    >
+      <props.icon className="h-7 w-7" />
+      <span className="sr-only">{label}</span>
     </Link>
   );
 }
