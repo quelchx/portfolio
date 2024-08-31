@@ -34,7 +34,7 @@ function SocialLink(props: SocialLinkProps) {
       target="_blank"
       className={cn(
         buttonVariants({ variant: "ghost" }),
-        "w-10 px-0 hidden sm:inline-flex glowing-icon"
+        "w-10 px-0 hidden sm:inline-flex glow-fx"
       )}
     >
       <props.icon className="h-7 w-7" />
