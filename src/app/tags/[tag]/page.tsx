@@ -17,7 +17,7 @@ type TagPageProps = {
 export async function generateMetadata(props: TagPageProps): Promise<Metadata> {
   const { tag } = props.params;
   return {
-    title: tag,
+    title: `Posts on ${tag.split("-").join(" ")}`,
     description: `Posts on the topic of ${tag}`,
   };
 }
