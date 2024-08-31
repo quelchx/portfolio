@@ -20,13 +20,16 @@ const socialLinks = [
   },
 ];
 
-function SocialLink(props: {
+type SocialLinkProps = {
   href: string;
   label: string;
   icon: (typeof Icons)[keyof typeof Icons];
-}) {
+};
+
+function SocialLink(props: SocialLinkProps) {
+  const { href, label } = props;
   return (
-    <Link href={props.href} target="_blank">
+    <Link href={href} target="_blank">
       <div
         className={cn(
           buttonVariants({ variant: "ghost" }),
@@ -34,7 +37,7 @@ function SocialLink(props: {
         )}
       >
         <props.icon className="h-7 w-7" />
-        <span className="sr-only">{props.label}</span>
+        <span className="sr-only">{label}</span>
       </div>
     </Link>
   );

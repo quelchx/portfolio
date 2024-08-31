@@ -6,11 +6,8 @@ interface CalloutProps {
   type?: "default" | "warning" | "danger";
 }
 
-export function Callout({
-  children,
-  type = "default",
-  ...props
-}: CalloutProps) {
+export function Callout(props: CalloutProps) {
+  const { children, type } = props;
   return (
     <div
       className={cn(

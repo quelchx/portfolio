@@ -4,13 +4,13 @@ import { Tag } from "@/components/tag";
 import { buttonVariants } from "@/components/ui/button";
 import { cn, formatDate } from "@/lib/utils";
 
-interface PostItemProps {
+type PostItemProps = {
   slug: string;
   title: string;
   description?: string;
   date: string;
   tags?: Array<string>;
-}
+};
 
 export function PostItem(props: PostItemProps) {
   const { slug, title, description, date, tags } = props;

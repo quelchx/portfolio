@@ -65,13 +65,7 @@ export default function Home() {
                   key={post.slug}
                   className="first:border-t first:border-border"
                 >
-                  <PostItem
-                    slug={post.slug}
-                    title={post.title}
-                    description={post.description}
-                    date={post.date}
-                    tags={post.tags}
-                  />
+                  <PostItem {...post} />
                 </li>
               )
           )}

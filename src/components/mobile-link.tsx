@@ -10,19 +10,12 @@ type MobileLinkProps = {
   onOpenChange: (o: boolean) => void;
 } & LinkProps;
 
-export function MobileLink({
-  href,
-  children,
-  onOpenChange,
-  sx,
-  ...props
-}: MobileLinkProps) {
+export function MobileLink(props: MobileLinkProps) {
   const router = useRouter();
   const pathname = usePathname();
-
+  const { sx, children, href, onOpenChange } = props;
   return (
     <Link
-      href={href}
       className={cn(
         "flex items-center transition-colors duration-300 hover:text-primary",
         pathname === href.toString() ? "text-primary" : "text-foreground/60",

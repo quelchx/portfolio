@@ -2,12 +2,13 @@ import Link from "next/link";
 import { slug } from "github-slugger";
 import { badgeVariants } from "@/components/ui/badge";
 
-interface TagProps {
+type TagProps = {
   tag: string;
   current?: boolean;
   count?: number;
-}
-export function Tag({ tag, current, count }: TagProps) {
+};
+export function Tag(props: TagProps) {
+  const { tag, current, count } = props;
   return (
     <Link
       className={badgeVariants({

@@ -5,7 +5,11 @@ import { Input } from "./ui/input";
 import { posts } from "#site/content";
 import { useMemo, useState } from "react";
 
-export function BlogPosts(props: { posts: typeof posts }) {
+type BlogPostProps = {
+  posts: typeof posts;
+};
+
+export function BlogPosts(props: BlogPostProps) {
   const [search, setSearch] = useState("");
 
   const filteredPosts = useMemo(() => {
@@ -52,7 +56,7 @@ export function BlogPosts(props: { posts: typeof posts }) {
         <div>
           {search ? (
             <p className="text-muted-foreground mt-4">
-              No posts found for <strong>{field}</strong> &quot;{search}&quot;
+              No posts found for &quot;{search}&quot;
             </p>
           ) : (
             <p className="text-muted-foreground mt-4">No posts found</p>

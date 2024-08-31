@@ -10,17 +10,16 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination";
 
-interface QueryPaginationProps {
+type QueryPaginationProps = {
   totalPages: number;
   className?: string;
-}
+};
 
-export function QueryPagination({
-  totalPages,
-  className,
-}: QueryPaginationProps) {
+export function QueryPagination(props: QueryPaginationProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const { totalPages, className } = props;
 
   const currentPage = Number(searchParams.get("page")) || 1;
 
