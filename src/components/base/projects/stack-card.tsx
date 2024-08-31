@@ -33,7 +33,7 @@ function StackCard(props: Stack) {
   );
 }
 
-const stack: Stack[] = [
+const stackList: Stack[] = [
   {
     section: "Languages",
     items: [
@@ -219,4 +219,4 @@ const stack: Stack[] = [
   },
 ];
 
-export { stack, StackCard };
+export { stackList, StackCard };

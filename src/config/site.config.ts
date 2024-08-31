@@ -4,6 +4,7 @@ export const siteConfig = {
   description:
     "Eric Quelch's personal blog built with Next.js, Velite, and ShadCN",
   author: "Eric Quelch",
+  avatar: "/avatar.jpg",
   links: {
     github: "https://github.com/quelchx",
     linkedin: "https://www.linkedin.com/in/quelchx",

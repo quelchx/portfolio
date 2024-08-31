@@ -4,7 +4,7 @@ import { posts } from "#site/content";
 import { Tag } from "@/components/shared/tag";
 
 export const metadata: Metadata = {
-  title: "Tags",
+  title: "Post Tags",
   description: "Topic I've written about",
 };
 

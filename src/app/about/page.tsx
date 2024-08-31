@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site.config";
 import { Projects } from "@/components/base/projects/projects";
@@ -7,12 +8,12 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { stack, StackCard } from "@/components/base/projects/stack-card";
+import { stackList, StackCard } from "@/components/base/projects/stack-card";
 import { Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Information about me",
+  description: `Learn more about ${siteConfig.author}`,
 };
 
 export default async function AboutPage() {
@@ -31,12 +32,13 @@ export default async function AboutPage() {
           <HoverCard>
             <HoverCardTrigger asChild>
               <Avatar className="h-48 w-48 static">
-                <AvatarImage
-                  className=""
-                  src="https://avatars.githubusercontent.com/u/74473426?v=4"
+                <Image
+                  src="/avatar.jpg"
                   alt={siteConfig.author}
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover rounded-full"
                 />
-                <AvatarFallback>EQ</AvatarFallback>
               </Avatar>
             </HoverCardTrigger>
             <HoverCardContent>
@@ -115,8 +117,8 @@ export default async function AboutPage() {
           always evolving as I learn new technologies.
         </p>
         <div className="max-h-[600px] overflow-auto pr-4">
-          {stack.map((s) => (
-            <StackCard {...s} key={s.section} />
+          {stackList.map((item) => (
+            <StackCard {...item} key={item.section} />
           ))}
         </div>
       </div>

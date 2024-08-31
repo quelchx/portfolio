@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tag } from "@/components/shared/tag";
 import { BlogPosts } from "@/components/shared/blog-posts";
 import { QueryPagination } from "@/components/shared/query-pagination";
+import { siteConfig } from "@/config/site.config";
 
 type TagPageProps = {
   params: { tag: string };
@@ -18,7 +19,7 @@ export async function generateMetadata(props: TagPageProps): Promise<Metadata> {
   const { tag } = props.params;
   return {
     title: `Posts on ${tag.split("-").join(" ")}`,
-    description: `Posts on the topic of ${tag}`,
+    description: `Posts on the topic of ${tag} by ${siteConfig.author}`,
   };
 }
 

@@ -9,7 +9,7 @@ import { BlogPosts } from "@/components/shared/blog-posts";
 import { QueryPagination } from "@/components/shared/query-pagination";
 
 export const metadata: Metadata = {
-  title: "My blog",
+  title: "My Blog",
   description: "A collection of my thoughts and ideas",
 };
 
