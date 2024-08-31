@@ -1,9 +1,10 @@
 "use client";
 
-import { PostItem } from "./post-item";
-import { Input } from "./ui/input";
+import { Fragment, useMemo, useState } from "react";
 import { posts } from "#site/content";
-import { useMemo, useState } from "react";
+
+import { Input } from "./ui/input";
+import { PostItem } from "./post-item";
 
 type BlogPostProps = {
   posts: typeof posts;
@@ -24,8 +25,8 @@ export function BlogPosts(props: BlogPostProps) {
   }, [search, props.posts]);
 
   return (
-    <>
-      <div className="flex items-center gap-x-3">
+    <Fragment>
+      <div className="flex items-center pb-2">
         <Input
           type="search"
           name="search"
@@ -63,6 +64,6 @@ export function BlogPosts(props: BlogPostProps) {
           )}
         </div>
       )}
-    </>
+    </Fragment>
   );
 }

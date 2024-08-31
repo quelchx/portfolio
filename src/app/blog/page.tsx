@@ -15,24 +15,15 @@ export const metadata: Metadata = {
 
 const POSTS_PER_PAGE = 5;
 
-interface BlogPageProps {
-  searchParams: {
-    page?: string;
-  };
-}
+type BlogPageProps = { searchParams: { page?: string } };
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = Number(searchParams?.page) || 1;
-  const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
-
-  const displayPosts = sortedPosts.slice(
-    POSTS_PER_PAGE * (currentPage - 1),
-    POSTS_PER_PAGE * currentPage
-  );
+export default async function BlogPage(props: BlogPageProps) {
+  const { searchParams } = props;
 
   const tags = getAllTags(posts);
+  const currentPage = Number(searchParams?.page) || 1;
   const sortedTags = sortTagsByCount(tags);
+  const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
   return (
     <div className="container max-w-5xl mx-auto py-6 lg:py-10">
@@ -49,9 +40,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <div className="grid grid-cols-12 gap-8 mt-8">
         <div className="col-span-12 col-start-1 sm:col-span-8">
           <hr />
-          <BlogPosts posts={displayPosts} />
+          <BlogPosts
+            posts={sortedPosts.slice(
+              POSTS_PER_PAGE * (currentPage - 1),
+              POSTS_PER_PAGE * currentPage
+            )}
+          />
           <QueryPagination
-            totalPages={totalPages}
+            totalPages={Math.ceil(sortedPosts.length / POSTS_PER_PAGE)}
             className="justify-end mt-4"
           />
         </div>
