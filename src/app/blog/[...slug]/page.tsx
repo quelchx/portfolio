@@ -1,10 +1,10 @@
+import "@/styles/mdx.css";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
 import { Tag } from "@/components/tag";
 import { siteConfig } from "@/config/site.config";
-import "@/styles/mdx.css";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type PostPageProps = {
   params: { slug: string[] };

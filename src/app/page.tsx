@@ -1,16 +1,24 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+import { posts } from "#site/content";
+import { cn, sortPosts } from "@/lib/utils";
+import { PostItem } from "@/components/post-item";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site.config";
-import { cn, sortPosts } from "@/lib/utils";
-import { posts } from "#site/content";
-import { PostItem } from "@/components/post-item";
-import { TreeCanvas } from "@/components/tree-canvas";
+
+const TreeCanvas = dynamic(
+  () => import("@/components/tree-canvas").then((mod) => mod.TreeCanvas),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 5);
   return (
     <div className="container max-w-5xl mx-auto">
-      <div className="flex flex-col lg:flex-row items-center w-full gap-2">
+      <div className="flex flex-col lg:flex-row items-center mt-16 w-full gap-2">
         <div className="flex flex-col space-y-8 w-full">
           <div className="flex flex-col space-y-6">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-balance">
