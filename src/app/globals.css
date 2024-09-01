@@ -25,7 +25,7 @@
   inset: -2px;
   border-radius: inherit;
   background: conic-gradient(greenyellow var(--fill), transparent var(--fill));
-  transition: --fill 0.3s ease-in-out;
+  transition: --fill 0.6s ease-in-out;
 }
 
 .glow-fx-alt {
