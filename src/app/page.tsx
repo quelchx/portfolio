@@ -39,17 +39,14 @@ export default function Home() {
               rel="noreferrer"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "glow-fx w-full sm:w-fit bg-purple-900/50 text-neutral-100 hover:bg-purple-900/75"
+                "w-full sm:w-fit bg-purple-900/50 text-neutral-100 hover:bg-purple-900/75"
               )}
             >
               GitHub
             </Link>
             <Link
               href="/blog"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "w-full sm:w-fit glow-fx"
-              )}
+              className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
             >
               View my blog
             </Link>

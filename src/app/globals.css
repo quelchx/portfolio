@@ -2,12 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --fill {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+
 .glow-fx {
-  transition: all 0.3s ease;
+  position: relative;
+  aspect-ratio: 1;
 }
 
 .glow-fx:hover {
-  filter: drop-shadow(0 0 0.25rem #6d28d9);
+  color: greenyellow;
+  --fill: 100%;
+}
+
+.glow-fx::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(greenyellow var(--fill), transparent var(--fill));
+  transition: --fill 0.3s ease-in-out;
+}
+
+.glow-fx-alt {
+  transition: all 0.4s ease;
+}
+
+.glow-fx-alt:hover {
+  filter: drop-shadow(0 0 0.5rem greenyellow);
 }
 
 /* width */
